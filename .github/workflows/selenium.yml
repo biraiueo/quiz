@@ -1,4 +1,4 @@
-name: Selenium CI - Login & Register
+name: Selenium Login & Register CI
 
 on:
   push:
@@ -24,17 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Login Test
-      run: |
-        pytest tests/test_login.py
+    - name: Run Login Tests
+      run: pytest tests/test_login.py
 
-    - name: Run Register Test
-      run: |
-        pytest tests/test_register.py
-
-    - name: Upload Screenshots
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: selenium-screenshots
-        path: screenshots/
+    - name: Run Register Tests
+      run: pytest tests/test_register.py
