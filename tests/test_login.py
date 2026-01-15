@@ -12,7 +12,7 @@ SCREENSHOT_DIR = "screenshots"
 
 def setup_driver():
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     return driver
